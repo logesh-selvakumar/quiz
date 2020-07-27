@@ -1,0 +1,122 @@
+[
+    {
+      "question": "Which country has beaver as the national emblem?",
+      "choice1": "Canada",
+      "choice2": "Turkey",
+      "choice3": "Peru",
+      "choice4": "U.S.A.",
+      "answer": 1
+    },
+    {
+      "question": "Which is the hottest planet?",
+      "choice1": "Mars",
+      "choice2": "Jupiter",
+      "choice3": "Venus",
+      "choice4": "Mercury",
+      "answer": 3
+    },
+    {
+      "question": "What are the tallest trees on Earth?",
+      "choice1": "Coast Redwood",
+      "choice2": "Coast Douglas Fir",
+      "choice3": "Giant Sequoia",
+      "choice4": "Sitka Spruce",
+      "answer": 1
+    },
+    {
+        "question": "Inside which HTML element do we put the JavaScript?",
+        "choice1": "<script>",
+        "choice2": "<javascript>",
+        "choice3": "<js>",
+        "choice4": "<scripting>",
+        "answer": 1
+    },
+      {
+        "question": "What is the correct syntax for referring to an external script called 'xxx.js'?",
+        "choice1": "<script href='xxx.js'>",
+        "choice2": "<script name='xxx.js'>",
+        "choice3": "<script src='xxx.js'>",
+        "choice4": "<script file='xxx.js'>",
+        "answer": 3
+      },
+      {
+        "question": "How do you write 'Hello World' in an alert box?",
+        "choice1": "msgBox('Hello World');",
+        "choice2": "alertBox('Hello World');",
+        "choice3": "msg('Hello World');",
+        "choice4": "alert('Hello World');",
+        "answer": 4
+      },
+      {
+        "question": "What was the name of Robert De Niro’s character in Taxi Driver?",
+        "choice1": "Jimmy Bickle",
+        "choice2": "Travis Bickle",
+        "choice3": "Virgil Bickle",
+        "choice4": "Harry Bickle",
+        "answer": 2
+      },
+      {
+        "question": "Which war caused the greatest loss of life for Americans?  ",
+        "choice1": "WW1",
+        "choice2": "WW2",
+        "choice3": "Vietnam",
+        "choice4": "The American Civil War",
+        "answer": 4
+      },
+      {
+        "question": "Which country employed the first police woman?",
+        "choice1": "England",
+        "choice2": "USA",
+        "choice3": "France",
+        "choice4": "Australia",
+        "answer": 2
+      },
+      {
+        "question": "When born, a Dalmatian puppy is always?",
+        "choice1": "black",  
+        "choice2": "black with white spots",
+        "choice3": "white with black spots",
+        "choice4": "white", 
+        "answer": 4
+      },
+      {
+        "question": "Which continent covers the largest area?",
+        "choice1": "Asia",
+        "choice2": "North America",
+        "choice3": "South America",
+        "choice4": "Africa",
+        "answer": 1
+      },
+      {
+        "question": "What is the only metal that is a liquid at normal atmospheric pressure and temperature?",
+        "choice1": "Lead",
+        "choice2": "Mercury",
+        "choice3": "Antimony",
+        "choice4": "Iron",
+        "answer": 2
+      }, 
+      {
+        "question": "In what century did the Black Death devastate Europe?",
+        "choice1": "12th",
+        "choice2": "14th",
+        "choice3": "13th",
+        "choice4": "15th",
+        "answer": 2
+      },
+      {
+        "question": "What is the loudest animal on earth?",
+        "choice1": "blue whale",  
+        "choice2": "sperm whale",
+        "choice3": "African elephant",
+        "choice4": "Indian elephant", 
+        "answer": 1
+      },
+      {
+        "question": "2,3,5,7,11 are the first four what? ",
+        "choice1": "odd numbers",
+        "choice2": "prime numbers",
+        "choice3": "composite numbers",
+        "choice4": "integers",
+        "answer": 2
+      }
+  ]

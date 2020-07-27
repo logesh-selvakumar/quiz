@@ -1,12 +1,10 @@
 let question = document.getElementById('question');
 let choices = Array.from(document.getElementsByClassName('choice-text'));
-let currentQuestion = {};
-let acceptingAnswer = false;
+let currentQuestion;
 let score = 0;
 let questionCount = 0;
 let correctAnswers = 10;
-let maxQuestions = 10;
-let remainingQuestions = [];
+let maxQuestions = 5;
 let progressBarText = document.getElementById("progressBarText");
 let scoreDisplay = document.getElementById("score"); 
 let progressBarFilled = document.getElementById("progressBarFilled");
@@ -15,61 +13,39 @@ let quiz = document.getElementById('quiz');
 
 let questions = [];
 
-fetch('https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple')
-    .then((res) => 
-    {
+fetch('questions.json')
+    .then((res) => {
         return res.json();
     })
-    .then((loadedQuestions) => 
-    {
-        questions = loadedQuestions.results.map((loadedQuestion) =>
-        {
-            let formattedQuestion = 
-            {
-                question: loadedQuestion.question,
-            };
-
-            let answerChoices = [...loadedQuestion.incorrect_answers];
-            formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
-            answerChoices.splice(formattedQuestion.answer - 1,0,loadedQuestion.correct_answer);
-            answerChoices.forEach((choice, index) => 
-            {
-                formattedQuestion['choice' + (index + 1)] = choice;
-            });
-
-            return formattedQuestion;
-            
-        });
-        quiz.classList.remove('hidden');
-        loader.classList.add('hidden');
-        startGame();
+    .then((loadedQuestions) => {
+        questions = loadedQuestions;
+        startQuiz();
     })
 
-function startGame() 
+function startQuiz() 
 {
     questionCount = 0;
     score = 0;
-    remainingQuestions = [...questions];
     getNewQuestion();
-
+    quiz.classList.remove('hidden');
+    loader.classList.add('hidden');
 }
 
 function getNewQuestion()
 {
-    if (remainingQuestions.length == 0 || questionCount >= maxQuestions) 
+    if (questionCount >= maxQuestions) 
     {
         localStorage.setItem("mostRecentScore", score);
-        return window.location.assign('/endQuiz.html');
+        return window.location.assign('endQuiz.html');
     }
     questionCount++;
     progressBarText.innerText = `Question ${questionCount} / ${maxQuestions}`;
     progressBarFilled.style.width = `${(questionCount / maxQuestions) * 100}%`;
-    let questionIndex = Math.floor(Math.random() * remainingQuestions.length);
-    currentQuestion = remainingQuestions[questionIndex];
+    let questionIndex = Math.floor(Math.random() * questions.length);
+    currentQuestion = questions[questionIndex];
     question.innerText = currentQuestion.question;
     choices.forEach(newQuestion);
-    remainingQuestions.splice(questionIndex, 1);
-    acceptingAnswer = true;
+    questions.splice(questionIndex, 1);
 }
 
 function newQuestion(choice) 
@@ -87,11 +63,6 @@ function Answer(choice)
 
 function correctAnswer(event) 
 {
-    if (!acceptingAnswer)
-    {
-        return;
-    }
-    acceptingAnswer = false;
     let selectedChoice = event.target;
     let selectedAnswer = selectedChoice.dataset['number'];
     let classToApply = 'incorrect';
