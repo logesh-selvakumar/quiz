@@ -11,6 +11,8 @@ let progressBarFilled = document.getElementById("progressBarFilled");
 let loader = document.getElementById('loader');
 let quiz = document.getElementById('quiz');
 
+setTimeout(time, 1000);
+
 let questions = [];
 
 fetch('questions.json')
@@ -27,12 +29,10 @@ function startQuiz()
     questionCount = 0;
     score = 0;
     getNewQuestion();
-    quiz.classList.remove('hidden');
-    loader.classList.add('hidden');
 }
 
 function getNewQuestion()
-{
+{    
     if (questionCount >= maxQuestions) 
     {
         localStorage.setItem("mostRecentScore", score);
@@ -88,4 +88,10 @@ function addScore(num)
 {
     score += num;
     scoreDisplay.innerText = score;
+}
+
+function time()
+{
+    quiz.classList.remove('hidden');
+    loader.classList.add('hidden');
 }
